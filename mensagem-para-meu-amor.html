@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para o Amor da Minha Vida 💘</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1a001a;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    .te-amo {
+      position: absolute;
+      color: #ff99cc;
+      font-size: 18px;
+      opacity: 0.08;
+      pointer-events: none;
+      animation: flutuar 20s linear infinite;
+    }
+
+    @keyframes flutuar {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    .te-amo-grande {
+      position: absolute;
+      font-size: 50px;
+      color: #ff4da6;
+      opacity: 0;
+      animation: aparecerDesaparecer 5s ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes aparecerDesaparecer {
+      0% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    .coracao-fogos {
+      position: absolute;
+      font-size: 90px;
+      color: red;
+      opacity: 0;
+      animation: fogos 6s ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes fogos {
+      0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.5) rotate(360deg); }
+      100% { opacity: 0; transform: scale(0.5) rotate(720deg); }
+    }
+
+    .frase-topo {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 22px;
+      z-index: 2;
+      animation: fade 6s infinite;
+    }
+
+    @keyframes fade {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frase-topo" id="fraseTopo">Você é a razão do meu sorriso 💖</div>
+
+  <script>
+    // Gerar "Te Amo" no fundo
+    const frasesPequenas = 200;
+    for (let i = 0; i < frasesPequenas; i++) {
+      const span = document.createElement("span");
+      span.className = "te-amo";
+      span.innerText = "Te Amo";
+      span.style.left = Math.random() * window.innerWidth + "px";
+      span.style.top = Math.random() * window.innerHeight + "px";
+      span.style.animationDuration = (15 + Math.random() * 10) + "s";
+      document.body.appendChild(span);
+    }
+
+    // Aparecer "Te Amo" grande de vez em quando
+    function mostrarTeAmoGrande() {
+      const span = document.createElement("span");
+      span.className = "te-amo-grande";
+      span.innerText = "Eu Te Amo ❤️";
+      span.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      span.style.top = Math.random() * (window.innerHeight - 100) + "px";
+      document.body.appendChild(span);
+      setTimeout(() => span.remove(), 5000);
+    }
+    setInterval(mostrarTeAmoGrande, 4000);
+
+    // Mostrar coração grandão tipo fogos
+    function mostrarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.className = "coracao-fogos";
+      coracao.innerText = "❤️";
+      coracao.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      coracao.style.top = Math.random() * (window.innerHeight - 100) + "px";
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 6000);
+    }
+    setInterval(mostrarCoracao, 5000);
+
+    // Frases no topo alternando
+    const frases = [
+      "Você é a razão do meu sorriso 💖",
+      "Meu mundo é mais bonito com você 🌍",
+      "Eu Te amo muito mais que maracujá 💘",
+      "Você é meu lar, meu amor, minha paz 🏡❤️",
+      "Sempre sua, pra sempre nós 💑"
+    ];
+    let fraseIndex = 0;
+    setInterval(() => {
+      fraseIndex = (fraseIndex + 1) % frases.length;
+      document.getElementById("fraseTopo").innerText = frases[fraseIndex];
+    }, 6000);
+  </script>
+
+</body>
+</html>
